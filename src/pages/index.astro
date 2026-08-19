@@ -1,0 +1,289 @@
+---
+const talks = [
+  {
+    title: 'From Observation to Intervention',
+    venue: 'Future of Work Institute Seminar, Curtin University',
+    date: 'May 2026',
+    speakers: 'Michael Borck',
+    note: 'What student–AI interaction patterns tell us, and what we can do about them.',
+    link: '/talks/fowi-seminar-2026-05-19.pdf',
+    linkLabel: 'Slides (PDF)',
+  },
+  {
+    title: 'Keep Asking',
+    venue: 'Festival of AI, Curtin University',
+    date: '2026',
+    speakers: 'Project team',
+    note: 'A one-line nudge toward deeper student–AI conversations.',
+    link: null,
+    linkLabel: 'Slides coming soon',
+  },
+  {
+    title: 'iSOLT Presentation',
+    venue: 'Institute for Scholarship of Learning & Teaching',
+    date: '2026',
+    speakers: 'Marcela Moraes',
+    note: 'Details and slides to follow.',
+    link: null,
+    linkLabel: 'Coming soon',
+  },
+];
+
+const team = [
+  { name: 'Michael Borck', role: 'Project lead · Information Systems' },
+  { name: 'Marcela Moraes', role: 'Co-investigator · Marketing' },
+  { name: 'Torsten Reiners', role: 'Co-investigator · Supply Chain' },
+  { name: 'Renee Ralph', role: 'Co-investigator · People and Culture' },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Keep Asking</title>
+    <meta
+      name="description"
+      content="Keep Asking — a Curtin University research project testing whether a one-line conversational nudge shifts how students engage with AI: toward follow-up, challenge, and extension rather than one-shot delegation."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a class="brand" href="/">
+          <img src="/favicon.svg" alt="" width="22" height="22" />
+          Keep&nbsp;Asking
+        </a>
+        <div class="links">
+          <a href="#study">The study</a>
+          <a href="#talks">Talks</a>
+          <a href="#team">Team</a>
+          <a href="#tools">Tools</a>
+          <a href="https://locolabo.org" class="ext">LocoLabo ↗</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">A learning &amp; teaching research project · Curtin University</p>
+        <h1>What if one line could change how students talk to AI?</h1>
+        <p class="lede">
+          Students often use AI like a vending machine: one question in, one answer out,
+          straight into the assignment. <strong>Keep Asking</strong> tests whether a single,
+          well-timed conversational nudge shifts that pattern — toward following up,
+          challenging the answer, and extending the idea.
+        </p>
+        <div class="chat-demo" aria-hidden="true">
+          <div class="bubble student">Can you write me a risk assessment for a small retail business adopting AI?</div>
+          <div class="bubble ai">Here's a starting point…</div>
+          <div class="bubble nudge">💬 <em>What would you push back on in this answer?</em></div>
+        </div>
+      </section>
+
+      <section id="study">
+        <h2>The study</h2>
+        <p>
+          A randomised controlled trial running across Semester&nbsp;2, 2026 in four units
+          spanning four disciplines — Information Systems, Supply Chain, Marketing, and
+          People&nbsp;and&nbsp;Culture. Students complete an authentic AI-assisted task in
+          their usual lab; half see an occasional one-line nudge in the chat, half don't.
+          Everything else — the model, the interface, the task — is identical.
+        </p>
+        <p>We're asking three things:</p>
+        <ul>
+          <li>Does the nudge increase critical engagement — follow-up, challenge, extension — compared with a silent control?</li>
+          <li>Does that engagement show up in the quality of what students produce?</li>
+          <li>Is any benefit equitable — does it reach students who arrive with fewer AI habits, or only those who already have them?</li>
+        </ul>
+        <p class="fine">
+          The trial is pre-registered, and approved by the Curtin University Human Research
+          Ethics Committee (HREC&nbsp;83897). It is funded by a 2026 Curtin Needs-Based
+          Funding Learning&nbsp;&amp;&nbsp;Teaching grant. Links to the registration and
+          papers will be posted here once peer review concludes.
+        </p>
+      </section>
+
+      <section id="talks">
+        <h2>Talks</h2>
+        <div class="cards">
+          {talks.map((t) => (
+            <article class="card">
+              <h3>{t.title}</h3>
+              <p class="meta">{t.venue} · {t.date}</p>
+              <p class="meta">{t.speakers}</p>
+              <p>{t.note}</p>
+              {t.link ? <a class="btn" href={t.link}>{t.linkLabel}</a> : <span class="soon">{t.linkLabel}</span>}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="team">
+        <h2>Team</h2>
+        <p>
+          Four investigators, four disciplines — so we can see whether the effect
+          travels beyond any one field.
+        </p>
+        <ul class="team">
+          {team.map((m) => (
+            <li><strong>{m.name}</strong><span>{m.role}</span></li>
+          ))}
+        </ul>
+        <p class="fine">
+          Contact: <a href="mailto:michael.borck@curtin.edu.au">michael.borck@curtin.edu.au</a>
+        </p>
+      </section>
+
+      <section id="tools">
+        <h2>Tools</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>keep-asking-app</h3>
+            <p>
+              The open-source chat platform that delivers the study: randomised assignment,
+              nudge injection, and a model instructed to answer plainly — so the only
+              structured cue in the trial is ours.
+            </p>
+            <a class="btn" href="https://github.com/michael-borck/keep-asking-app">GitHub ↗</a>
+          </article>
+          <article class="card">
+            <h3>TaskForge</h3>
+            <p>
+              A task designer for building the authentic, discipline-specific AI-assisted
+              tasks the study runs on — the kind a generic AI answer would get wrong.
+            </p>
+            <a class="btn" href="https://taskforge.borck.education">taskforge.borck.education ↗</a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Part of the <a href="https://locolabo.org">LocoLabo</a> family ·
+        <a href="https://github.com/michael-borck/keep-asking-site">Site source</a> ·
+        © 2026 the Keep Asking project team
+      </p>
+    </footer>
+
+    <style>
+      :root {
+        --bg: #0a0a0b;
+        --panel: #141317;
+        --panel-2: #1b1a20;
+        --border: #2a2a30;
+        --text: #e8e6e3;
+        --muted: #9a9a9e;
+        --accent: #8b5cf6;
+        --accent-soft: #c4b5fd;
+        --font: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        --mono: 'JetBrains Mono', ui-monospace, monospace;
+      }
+      * { box-sizing: border-box; margin: 0; }
+      html { scroll-behavior: smooth; }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--font);
+        line-height: 1.6;
+      }
+      a { color: var(--accent-soft); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      header {
+        position: sticky; top: 0; z-index: 10;
+        background: color-mix(in srgb, var(--bg) 82%, transparent);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+      }
+      nav {
+        max-width: 60rem; margin: 0 auto; padding: 0.75rem 1.25rem;
+        display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      }
+      .brand {
+        display: flex; align-items: center; gap: 0.5rem;
+        font-weight: 700; color: var(--text); font-size: 1.05rem;
+      }
+      .brand:hover { text-decoration: none; }
+      nav .links { display: flex; gap: 1.1rem; flex-wrap: wrap; font-size: 0.92rem; }
+      nav .links a { color: var(--muted); }
+      nav .links a:hover { color: var(--text); text-decoration: none; }
+      nav .links .ext { color: var(--accent-soft); }
+
+      main { max-width: 60rem; margin: 0 auto; padding: 0 1.25rem; }
+      section { padding: 3.5rem 0 0.5rem; }
+
+      .hero { padding-top: 4.5rem; }
+      .eyebrow {
+        font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em;
+        text-transform: uppercase; color: var(--accent-soft); margin-bottom: 1rem;
+      }
+      h1 { font-size: clamp(1.9rem, 5vw, 3rem); line-height: 1.15; max-width: 34ch; }
+      .lede { margin-top: 1.25rem; font-size: 1.12rem; color: var(--muted); max-width: 62ch; }
+      .lede strong { color: var(--text); }
+
+      .chat-demo {
+        margin: 2.25rem 0 1rem; padding: 1.25rem;
+        background: var(--panel); border: 1px solid var(--border); border-radius: 14px;
+        display: flex; flex-direction: column; gap: 0.6rem; max-width: 34rem;
+      }
+      .bubble {
+        padding: 0.55rem 0.9rem; border-radius: 12px; font-size: 0.92rem; max-width: 90%;
+      }
+      .bubble.student { align-self: flex-end; background: var(--panel-2); border: 1px solid var(--border); }
+      .bubble.ai { align-self: flex-start; background: #101a2b; border: 1px solid #1d2a44; color: var(--muted); }
+      .bubble.nudge {
+        align-self: flex-start;
+        background: color-mix(in srgb, var(--accent) 16%, var(--panel));
+        border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--border));
+      }
+
+      h2 {
+        font-size: 1.5rem; margin-bottom: 1rem;
+        padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
+      }
+      section p, section ul { color: var(--muted); max-width: 68ch; margin-bottom: 0.9rem; }
+      section ul { padding-left: 1.2rem; }
+      section li { margin-bottom: 0.4rem; }
+      .fine { font-size: 0.88rem; }
+
+      .cards {
+        display: grid; gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+      }
+      .card {
+        background: var(--panel); border: 1px solid var(--border); border-radius: 14px;
+        padding: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem;
+      }
+      .card h3 { font-size: 1.05rem; }
+      .card .meta { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); margin-bottom: 0; }
+      .card p { font-size: 0.92rem; margin-bottom: 0; }
+      .card .btn, .card .soon { margin-top: auto; padding-top: 0.75rem; font-size: 0.88rem; }
+      .btn { font-weight: 600; }
+      .soon { color: var(--muted); font-style: italic; }
+
+      .team { list-style: none; padding: 0; display: grid; gap: 0.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+      .team li {
+        background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+        padding: 0.7rem 1rem; display: flex; flex-direction: column;
+      }
+      .team li strong { color: var(--text); }
+      .team li span { font-size: 0.85rem; color: var(--muted); }
+
+      footer {
+        margin-top: 4rem; border-top: 1px solid var(--border);
+        padding: 1.5rem 1.25rem 2.5rem; text-align: center;
+        color: var(--muted); font-size: 0.85rem;
+      }
+    </style>
+  </body>
+</html>
