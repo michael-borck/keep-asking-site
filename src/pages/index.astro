@@ -73,18 +73,28 @@ const team = [
 
     <main>
       <section class="hero">
-        <p class="eyebrow">A learning &amp; teaching research project · Curtin University</p>
-        <h1>What if one line could change how students talk to AI?</h1>
-        <p class="lede">
-          Students often use AI like a vending machine: one question in, one answer out,
-          straight into the assignment. <strong>Keep Asking</strong> tests whether a single,
-          well-timed conversational nudge shifts that pattern — toward following up,
-          challenging the answer, and extending the idea.
-        </p>
-        <div class="chat-demo" aria-hidden="true">
-          <div class="bubble student">Can you write me a risk assessment for a small retail business adopting AI?</div>
-          <div class="bubble ai">Here's a starting point…</div>
-          <div class="bubble nudge">💬 <em>What would you push back on in this answer?</em></div>
+        <div class="hero-grid">
+          <div class="hero-text">
+            <p class="eyebrow">A learning &amp; teaching research project · Curtin University</p>
+            <h1>What if one line could change how students talk to AI?</h1>
+            <p class="lede">
+              Students often use AI like a vending machine: one question in, one answer out,
+              straight into the assignment. <strong>Keep Asking</strong> tests whether a single,
+              well-timed conversational nudge shifts that pattern — toward following up,
+              challenging the answer, and extending the idea.
+            </p>
+          </div>
+          <div class="chat-demo" aria-hidden="true">
+            <div class="bubble student">Can you write me a risk assessment for a small retail business adopting AI?</div>
+            <div class="stack">
+              <div class="typing typing-1"><span></span><span></span><span></span></div>
+              <div class="bubble ai">Here's a starting point…</div>
+            </div>
+            <div class="stack">
+              <div class="typing typing-2"><span></span><span></span><span></span></div>
+              <div class="bubble nudge">💬 <em>What would you push back on in this answer?</em></div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -222,6 +232,13 @@ const team = [
       section { padding: 3.5rem 0 0.5rem; }
 
       .hero { padding-top: 4.5rem; }
+      .hero-grid {
+        display: grid; grid-template-columns: 1.15fr 0.85fr;
+        gap: 2.5rem; align-items: center;
+      }
+      @media (max-width: 800px) {
+        .hero-grid { grid-template-columns: 1fr; }
+      }
       .eyebrow {
         font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em;
         text-transform: uppercase; color: var(--accent-soft); margin-bottom: 1rem;
@@ -231,9 +248,12 @@ const team = [
       .lede strong { color: var(--text); }
 
       .chat-demo {
-        margin: 2.25rem 0 1rem; padding: 1.25rem;
+        padding: 1.25rem;
         background: var(--panel); border: 1px solid var(--border); border-radius: 14px;
-        display: flex; flex-direction: column; gap: 0.6rem; max-width: 34rem;
+        display: flex; flex-direction: column; gap: 0.6rem;
+      }
+      @media (max-width: 800px) {
+        .chat-demo { margin-top: 2.25rem; max-width: 34rem; }
       }
       .bubble {
         padding: 0.55rem 0.9rem; border-radius: 12px; font-size: 0.92rem; max-width: 90%;
@@ -244,6 +264,46 @@ const team = [
         align-self: flex-start;
         background: color-mix(in srgb, var(--accent) 16%, var(--panel));
         border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--border));
+      }
+
+      /* Conversation plays in: student asks, AI types then answers, then the nudge lands */
+      .stack { display: grid; }
+      .stack > * { grid-area: 1 / 1; justify-self: start; }
+      .typing {
+        display: flex; gap: 0.3rem; align-items: center;
+        padding: 0.7rem 0.9rem; border-radius: 12px;
+        background: var(--panel-2); border: 1px solid var(--border);
+        opacity: 0; width: max-content;
+      }
+      .typing span {
+        width: 6px; height: 6px; border-radius: 50%;
+        background: var(--muted);
+        animation: dot-bounce 1s ease-in-out infinite;
+      }
+      .typing span:nth-child(2) { animation-delay: 0.15s; }
+      .typing span:nth-child(3) { animation-delay: 0.3s; }
+      .bubble.student { opacity: 0; animation: bubble-in 0.5s ease 0.4s forwards; }
+      .typing-1 { animation: typing-io 1.3s ease 1.1s forwards; }
+      .bubble.ai { opacity: 0; animation: bubble-in 0.5s ease 2.3s forwards; }
+      .typing-2 { animation: typing-io 1.3s ease 3.1s forwards; }
+      .bubble.nudge { opacity: 0; animation: bubble-in 0.6s ease 4.3s forwards; }
+      @keyframes bubble-in {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: none; }
+      }
+      @keyframes typing-io {
+        0% { opacity: 0; }
+        20% { opacity: 1; }
+        80% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+      @keyframes dot-bounce {
+        0%, 60%, 100% { transform: translateY(0); }
+        30% { transform: translateY(-4px); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .bubble { animation: none !important; opacity: 1 !important; }
+        .typing { display: none !important; }
       }
 
       h2 {
