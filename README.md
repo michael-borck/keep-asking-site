@@ -3,7 +3,7 @@
 Public landing and companion site for **Keep Asking** — a Curtin University
 learning & teaching research project testing whether a one-line conversational
 nudge shifts how students engage with AI (toward follow-up, challenge, and
-extension rather than one-shot delegation). HREC 83897; NBF L&T grant 2026.
+extension rather than one-shot delegation). HRE2026-0245; NBF L&T grant 2026.
 
 Live at **<https://keep-asking.locolabo.org>** — part of the
 [LocoLabo](https://locolabo.org) family.
