@@ -27,4 +27,4 @@ npm run build     # production build to dist/
 
 Until the associated papers clear peer review, the site deliberately omits the
 manuscript title, the OSF registration link, and any link to the live study
-platform. Talk slides are added under `public/talks/` as they are cleared.
+platform.

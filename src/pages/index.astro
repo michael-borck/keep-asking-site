@@ -1,34 +1,4 @@
 ---
-const talks = [
-  {
-    title: 'From Observation to Intervention',
-    venue: 'Future of Work Institute Seminar, Curtin University',
-    date: 'May 2026',
-    speakers: 'Michael Borck',
-    note: 'What student–AI interaction patterns tell us, and what we can do about them.',
-    link: null,
-    linkLabel: 'Slides under review',
-  },
-  {
-    title: 'Keep Asking',
-    venue: 'Festival of AI, Curtin University',
-    date: '2026',
-    speakers: 'Project team',
-    note: 'A one-line nudge toward deeper student–AI conversations.',
-    link: '/talks/festival-of-ai-2026.pdf',
-    linkLabel: 'Slides (PDF)',
-  },
-  {
-    title: 'FBL Research Symposium',
-    venue: 'Faculty of Business and Law, Curtin University',
-    date: '30 September 2026',
-    speakers: 'Project team',
-    note: 'Details and slides to follow.',
-    link: null,
-    linkLabel: 'Coming soon',
-  },
-];
-
 const team = [
   { name: 'Michael Borck', role: 'Project lead · Business Information Systems' },
   { name: 'Marcela Moraes', role: 'Co-investigator · Marketing' },
@@ -63,7 +33,6 @@ const team = [
         </a>
         <div class="links">
           <a href="#study">The study</a>
-          <a href="#talks">Talks</a>
           <a href="#team">Team</a>
           <a href="#tools">Tools</a>
           <a href="https://locolabo.org" class="ext">LocoLabo ↗</a>
@@ -121,21 +90,6 @@ const team = [
           Funding Learning&nbsp;&amp;&nbsp;Teaching grant. Links to the registration and
           papers will be posted here once peer review concludes.
         </p>
-      </section>
-
-      <section id="talks">
-        <h2>Talks</h2>
-        <div class="cards">
-          {talks.map((t) => (
-            <article class="card">
-              <h3>{t.title}</h3>
-              <p class="meta">{t.venue} · {t.date}</p>
-              <p class="meta">{t.speakers}</p>
-              <p>{t.note}</p>
-              {t.link ? <a class="btn" href={t.link}>{t.linkLabel}</a> : <span class="soon">{t.linkLabel}</span>}
-            </article>
-          ))}
-        </div>
       </section>
 
       <section id="team">
@@ -328,9 +282,8 @@ const team = [
       .card h3 { font-size: 1.05rem; }
       .card .meta { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); margin-bottom: 0; }
       .card p { font-size: 0.92rem; margin-bottom: 0; }
-      .card .btn, .card .soon { margin-top: auto; padding-top: 0.75rem; font-size: 0.88rem; }
+      .card .btn { margin-top: auto; padding-top: 0.75rem; font-size: 0.88rem; }
       .btn { font-weight: 600; }
-      .soon { color: var(--muted); font-style: italic; }
 
       .team { list-style: none; padding: 0; display: grid; gap: 0.5rem;
         grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
